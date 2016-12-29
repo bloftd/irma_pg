@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>Deuntoque</title>
+    </head>
+     <script type="text/javascript" src="cordova.js"></script>
+<script>
+document.addEventListener("deviceready", onDeviceReady, false);
+
+
+function onDeviceReady() {
+ 
+  showHelp();
+
+}
+</script>
+<script>
+var inAppBrowserRef;
+
+function showHelp() {
+    var url ='http://dev.deuntoque.com/frontend/web/';
+    var target = "_self";
+
+    var options = "location=no,toolbar=no,zoom=no";
+
+    inAppBrowserRef = cordova.InAppBrowser.open(url, target, options);
+
+    inAppBrowserRef.addEventListener('loaderror', loadErrorCallBack);
+
+}
+
+
+
+function loadErrorCallBack(params) {
+
+ 
+
+   alert('Verifique su conexión a internet');
+
+    inAppBrowserRef.close();
+
+    inAppBrowserRef = undefined;
+
+}
+
+
+
+
+</script>
+    <body>
+      
+    </body>
+</html>
